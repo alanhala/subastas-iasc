@@ -14,17 +14,19 @@ defmodule Subastas.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      applications: [:maru],
-      extra_applications: [:logger]
+      # mod: {API.Application, []},
+      # mod: {Auction.Application, []},
+      mod: {Buyer.Application, []},
+      extra_applications: [:logger, :cowboy, :plug, :poison]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:maru, "~> 0.13"},
-      {:jason, "~> 1.0"},
-      {:cowboy, "~> 2.3"},
+      {:cowboy, "~> 2.0"},
+      {:plug, "~> 1.0"},
+      {:poison, "~> 3.1"}
     ]
   end
 end
